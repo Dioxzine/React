@@ -33,21 +33,16 @@ h1,h2,h3,h4,h5,h6 {
 
 
 /**/
-html{
-border: 1px solid red;
-}
 body{
-border: 1px solid black;
+background-image: url(images/rivaDelGarda.jpg);
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
 }
-#root {
-  background-image: url(../components/immages/Riva\ del\ garda.jpg);
-  width: 100%;
-  height: 100%;
-}
+
 .background{
 display: flex;
-height: 100%;
-width: 35%;
 }
 
 

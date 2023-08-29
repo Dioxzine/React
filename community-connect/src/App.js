@@ -2,8 +2,9 @@ import './App.css';
 import fotoRiva from "./images/rivaDelGarda.jpg"
 function App() {
   return (
-    <div className = "background">
-      <img src={fotoRiva} alt=""></img>
+    <>
+
+    <div className = "background">      
       <div className='titolo'>
         <h1>
           Community Connect
@@ -18,6 +19,7 @@ function App() {
 
       </div>
     </div>
+    </>
   );
 }
 
