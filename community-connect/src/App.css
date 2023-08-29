@@ -1,11 +1,7 @@
 /*css resetter*/
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
-  margin:0;
-  padding:0;
-}
-html,body {
-  margin:0;
-  padding:0;
+*{
+margin:0;
+padding: 0;
 }
 table {
   border-collapse:collapse;
@@ -37,18 +33,21 @@ h1,h2,h3,h4,h5,h6 {
 
 
 /**/
-
+html{
+border: 1px solid red;
+}
+body{
+border: 1px solid black;
+}
 #root {
-   background: linear-gradient(135deg, rgb(0, 68, 255), pink);
-   background-repeat: no-repeat;
-   width: auto;
-   height: 100%;
+  background-image: url(../components/immages/Riva\ del\ garda.jpg);
+  width: 100%;
+  height: 100%;
 }
 .background{
 display: flex;
+height: 100%;
+width: 35%;
+}
 
-}
-h1{
-font-size: 100px;
-}
 
