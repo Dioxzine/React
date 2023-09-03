@@ -1,25 +1,14 @@
-import './App.css';
-import fotoRiva from "./images/rivaDelGarda.jpg"
+import WelcomePage from "./pages/WelcomePage"
+import NoPage from "./pages/NoPage";
+import {BrowserRouter , Routes , Route} from "react-router-dom"
 function App() {
   return (
-    <>
-
-    <div className = "background">      
-      <div className='titolo'>
-        <h1>
-          Community Connect
-        </h1>
-      </div>
-      <div>
-        <nav className= "BarraDiRicerca">
-
-        </nav>
-        <button className='PulsanteDiRicerca'> 
-        </button>
-
-      </div>
-    </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index element = {<WelcomePage />} path="/home"></Route>
+        <Route path="*" element ={<NoPage/>}></Route> 
+      </Routes>
+    </BrowserRouter>
   );
 }
 
