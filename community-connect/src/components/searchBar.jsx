@@ -4,9 +4,6 @@ import { FaSearch } from "react-icons/fa";
 
 function SearchBar ()  {
     const [input,setInput] = useState("");
-    const fetchData = (value) => {
-    
-    }
     return(
         <div className="ricerca">
         <form>

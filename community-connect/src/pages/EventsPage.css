@@ -1,0 +1,19 @@
+.divBody {
+height: 100vh;
+background-color: rgb(228, 241, 255);
+display: grid;
+grid-template-columns: 25% 1% 74%;
+padding: 1vh;
+}
+
+.tagBox{
+    background-color: white;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+.eventBox {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1vh;
+}

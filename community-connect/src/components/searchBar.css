@@ -57,13 +57,14 @@
     padding: 0px 10px;
     border-radius: 10px;
     font-size:1.24rem;
+    overflow: hidden;
     }
     
     
     form .lent{
     align-self: center ;
-    padding-left: 10px;
     font-size:1.5rem;
+    padding-left: 10px;
     }
     
     input:focus{
