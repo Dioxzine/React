@@ -1,0 +1,35 @@
+.outsideBox{
+    display: grid;
+    grid-template-columns: 25% 3% 72%;
+    height: 33%;
+    width: 100%;
+    border: 1px solid rgba(34, 34, 34, 0.411);
+    padding :0.5rem;
+    border-radius: 10px;
+    overflow: auto;
+    margin: 1rem 0;
+    min-height: 200px;
+}
+
+.imgHolder{    
+    height: 100%;
+    background-size:cover;
+    background-repeat: no-repeat;    
+    background-position: center;
+    border-radius: 10px;
+    border: 1px solid rgba(34, 34, 34, 0.411);
+}
+
+.textHolder{
+    max-height: 100%;    
+    display: grid;
+    grid-template-rows: 15% 10% 10% 55% 10%;
+}
+
+.eventTitle{
+font-size: 150%;
+}
+
+.description{
+overflow: auto;
+}

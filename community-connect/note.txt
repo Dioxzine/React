@@ -1,0 +1,9 @@
+function SearchBarValue({ setInputValue }) {
+  const [input, setInput] = useState("");
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setInput(inputValue);
+    setInputValue(inputValue); // Pass the input value to the parent or another component
+  };
+}

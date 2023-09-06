@@ -2,8 +2,11 @@ import "./searchBar.css";
 import React, {useState} from "react";
 import { FaSearch } from "react-icons/fa";
 
+
+
 function SearchBar ()  {
-    const [input,setInput] = useState("");
+  const [input,setInput] = useState("");
+  console.log(input)
     return(
         <div className="ricerca">
         <form>
@@ -13,5 +16,6 @@ function SearchBar ()  {
       </div>        
     );
 };
+
 
 export default SearchBar;

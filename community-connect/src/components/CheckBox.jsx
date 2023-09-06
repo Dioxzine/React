@@ -13,12 +13,15 @@ return(
     );
 };
 
-function CheckBox() {
-    return(
+function CheckBox(){    
+    const array = [];
+    Data.map((item)=>(            
+        item[Object.keys(item)].tag.map((item2)=>array.push(item2)) 
+    ))
+    const uniqueArray = [...new Set(array)]
+    return(        
         <div>
-            {Data[0].tags.map((item) => (
-          box(item)
-        ))}
+        {uniqueArray.map((item)=> box(item))}
         </div>
         );
 };
