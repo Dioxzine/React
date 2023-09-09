@@ -1,9 +1,262 @@
-function SearchBarValue({ setInputValue }) {
-  const [input, setInput] = useState("");
+{"gita in montagna":
+        {
+        "nome":"gita in montagna",
+        "descrizione":"",
+        "data":"",
+        "luogo":"",
+        "img":"https://th.bing.com/th/id/OIP.HxV79tFMPfBAIo0BBF-sOgHaEy?pid=ImgDet&rs=1",  
+        "tag":["montagna","fuori" ]                
+    },
+},
+    {"gita al mare":
+        {
+        "nome":"gita al mare",
+        "descrizione":"",
+        "data":"",
+        "luogo":"",
+        "img":"https://th.bing.com/th/id/OIP.HxV79tFMPfBAIo0BBF-sOgHaEy?pid=ImgDet&rs=1",  
+        "tag":["mare","fuori" ]               
+    },
+},
+    {"gita al museo":
+        {
+        "nome":"gita al museo",
+        "descrizione":"",
+        "data":"",
+        "luogo":"",
+        "img":"https://th.bing.com/th/id/OIP.HxV79tFMPfBAIo0BBF-sOgHaEy?pid=ImgDet&rs=1",  
+        "tag":["museo","dentro"]                 
+    }
+},
+    
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    setInput(inputValue);
-    setInputValue(inputValue); // Pass the input value to the parent or another component
-  };
-}
+import "./EventsPage.css"
+import "../components/searchBar.css"
+import "../components/CheckBox.css"
+import React, {useState} from "react";
+import { FaSearch } from "react-icons/fa";
+import Data from "../Data"
+import "../components/EventBox.css"
+import { FaPlus } from "react-icons/fa";
+import "../components/AddEvent.css"
+
+function EventsPage()  {
+    const [input,setInput] = useState("");
+    const [checkedIdArray,setCheckedIdArray]  = useState([]);
+    const [addButton,setAddButton] = useState(false);
+
+    function controllo3 (){
+        if(Data!== undefined && Data!== null){
+        Data.filter((item)=> {
+            if(input === "" && checkedIdArray.length === 0){
+               return item
+           }else if (checkedIdArray.length === 0 ){
+               return item[Object.keys(item)].nome.toLowerCase().includes(input.toLowerCase()).map((item)=> EventBox(
+                item[Object.keys(item)].nome,
+                item[Object.keys(item)].luogo,
+                item[Object.keys(item)].data,
+                item[Object.keys(item)].descrizione,
+                item[Object.keys(item)].tag,
+                item[Object.keys(item)].img))
+           }else if (input === "" ){
+               return checkedIdArray.every(element => item[Object.keys(item)].tag.includes(element)).map((item)=> EventBox(
+                item[Object.keys(item)].nome,
+                item[Object.keys(item)].luogo,
+                item[Object.keys(item)].data,
+                item[Object.keys(item)].descrizione,
+                item[Object.keys(item)].tag,
+                item[Object.keys(item)].img))
+           } else {
+               return (item[Object.keys(item)].nome.toLowerCase().includes(input.toLowerCase()) && checkedIdArray.every(element => item[Object.keys(item)].tag.includes(element))).map((item)=> EventBox(
+                item[Object.keys(item)].nome,
+                item[Object.keys(item)].luogo,
+                item[Object.keys(item)].data,
+                item[Object.keys(item)].descrizione,
+                item[Object.keys(item)].tag,
+                item[Object.keys(item)].img))
+           }
+        })}else{
+        return false
+        }
+    }
+
+    const array = [];
+    if (Data){
+        
+        function help (item){
+            return item ? item.tag || "" : "";
+        }
+    Data.map((item)=>(   
+        array.push(help(item)) 
+        ) 
+    )}
+   
+    const uniqueArray = [...new Set(array)]
+    console.log(Data)
+    function smth (item) {
+    if(item === ""){
+    
+    }else{
+        return(
+        <div className="wrapper">
+        <div className="inputDiv">
+            <input type="checkbox" name="tags" id={item} onClick={checkedId}></input>            
+        </div>
+            <label for={item}>{item}</label>
+        </div>)
+    }
+    }
+    
+
+      const checkedId = () =>{
+        let elements = document.getElementsByTagName("INPUT");
+        let checkedArray =  [];
+        for(var i=0;i<elements.length;i++)
+        {
+            if(elements[i].type === 'checkbox' && elements[i].checked)
+            {
+                checkedArray.push(elements[i].id);
+            }
+        }
+        setCheckedIdArray(checkedArray)
+    }
+    const handleAddForm = () =>{
+        setAddButton(true)
+        const formClicked = document.getElementById("idFormAddEvent")
+        formClicked.classList.add("formBackgroundActive")
+    }
+   
+    const wasSubmitted = false;    
+    function checkBeforeSubmit(){
+      if(!wasSubmitted) {
+        wasSubmitted = true;
+        return wasSubmitted;
+      }
+      return false;
+    }
+    const addFormData = document.querySelector(".AddEventForm")
+    if(addFormData){
+        addFormData.addEventListener('submit',event =>{
+            event.preventDefault();
+        
+            const formData = new FormData(addFormData);
+            const dataForm = Object.fromEntries(formData)       
+            localStorage.setItem(JSON.stringify(dataForm.nome),JSON.stringify(dataForm))
+    
+        })
+    }     
+    
+    console.log(Data)
+return(
+    <>  
+    <div id="idFormAddEvent" className="formBackgroundDeactivated">
+        <div className="formAddEvent">            
+                <h1>Carica il tuo evento</h1>
+                <form className="AddEventForm" onSubmit="return checkBeforeSubmit()">
+                <input name="nome" type="" placeholder="Nome dell'evento" ></input>  
+                <input name="descrizione" placeholder="Descrizione" ></input>  
+                <input name="data" type="date" placeholder="Data"></input>  
+                <input name="luogo" placeholder="Luogo"></input>  
+                <input name="img" type="url" placeholder="URL immagine" ></input>  
+                <input name="tag" type="" placeholder="Tag"></input>   
+                <button type="submit">Carica</button>
+                </form>
+        </div>
+    </div>  
+    <div className="divBody">        
+        <div className="tagBox">
+            <h1 className="title">Eventi</h1>
+            <div>
+                <div>
+                <div className="ricerca">
+                    <form className="Searchbar">
+                        <FaSearch  color="black" className='lent' />
+                        <input className="searchbar" type="text" placeholder="trova eventi intorno a te!"value={input} onChange={(e)=> setInput(e.target.value)}></input>
+                    </form>
+                </div>   
+                </div>
+                <div className="h">
+                {uniqueArray.map((item)=> smth(item))}
+                </div>
+            </div>         
+            <div className="addEvent">
+                <button  className="button" onClick={handleAddForm}><FaPlus className="plusIcon"/> </button>                             
+            </div>    
+        </div>
+        {/* space betwin grids*/}
+        <div>            
+        </div>
+        {/* space betwin grids*/}
+        <div className="eventBox">
+        
+         {controllo3()}   
+                    
+        </div>
+        
+    </div>
+    </>
+
+    );
+};
+
+
+
+function EventBox (title,place,date,info,tags,imgUrl){    
+
+    return(
+        <div className="outsideBox">
+            <div className="imgHolder" style={{
+                 backgroundImage:`url(${imgUrl})`}}>
+                
+            </div>
+            <div>               
+            </div>
+            <div className="textHolder">            
+                <h1 className="eventTitle">
+                    {title}
+                </h1>
+                <p className="place">   
+                {"Luogo : "+ place}
+                </p>
+                <p className="Date">
+                {"Data :  "+ date}
+                </p>
+                <p className="description">
+                {"Info : "+ info}
+                </p>
+                <p className="tags">
+                {"Tags : "+ tags}
+                </p>
+            </div>
+        </div>
+        )
+    }
+
+
+
+export default EventsPage;
+
+
+    useEffect(() => {
+        setLocalStorageData(function(){
+            const keys = Object.keys(localStorage)
+            for (let i = 0; i < keys.length; i++) {
+                const key = keys[i];
+                
+                console.log(key)
+              }
+        });
+      }, []);
+
+
+       setLocalStorageData(function(){
+                const array = []
+                const keys = Object.keys(localStorage)
+                for (let i = keys.length-1; i >= 0; i--) {                
+                    const key  = keys[i];
+                    const key2 = key
+                    array[key] = JSON.parse(localStorage.getItem(key))                       
+                  }
+                  return array
+            });
+    

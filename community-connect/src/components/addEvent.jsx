@@ -1,9 +1,14 @@
 import "./addEvent.css"
+import { FaPlus } from "react-icons/fa";
 
-function addEvent()  {
+
+function AddEvent()  {
 return(
-    <div></div>
+    <div className="addEvent">
+        <FaPlus/>
+        <h1> HAHHAHA</h1>
+    </div>
     );
 };
 
-export default addEvent()
+export default AddEvent()

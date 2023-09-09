@@ -1,7 +1,9 @@
 import "./EventBox.css"
 import Data from "../Data"
 
+  
 function Box (title,place,date,info,tags,imgUrl){    
+
 return(
     <div className="outsideBox">
         <div className="imgHolder" style={{
@@ -34,7 +36,7 @@ return(
 function EventBox(){
     return(
         <>
-        {Data.map((item)=> Box (item[Object.keys(item)].nome,item[Object.keys(item)].luogo,item[Object.keys(item)].data,item[Object.keys(item)].descrizione,item[Object.keys(item)].tag,item[Object.keys(item)].img))}
+        {DataUpdate.map((item)=> Box (item[Object.keys(item)].nome,item[Object.keys(item)].luogo,item[Object.keys(item)].data,item[Object.keys(item)].descrizione,item[Object.keys(item)].tag,item[Object.keys(item)].img))}
         </>
         )
 };

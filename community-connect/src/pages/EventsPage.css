@@ -1,5 +1,14 @@
-.divBody {
+.button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 
+.divBody {
 height: 100vh;
 background-color: rgb(228, 241, 255);
 display: grid;
@@ -20,6 +29,7 @@ padding: 2rem;
     padding: 1vh;
     border: 1px solid rgba(34, 34, 34, 0.411);
     overflow: auto;
+    position: relative;
     
 }
 
@@ -31,4 +41,47 @@ font-size: 200%;
 width: 100%;
 margin: 2vh 0;
 border: 1px solid  rgba(34, 34, 34, 0.411);
+}
+
+.button {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: rgb(157, 235, 255);
+    border: 1px rgba(34, 34, 34, 0.411) solid;
+}
+
+.h{
+    max-height: 80vh;
+overflow: auto;
+}
+
+.plusIcon{
+width: 100%;
+height: auto;
+font-size: x-large;
+}
+
+.formBackgroundDeactivated{
+display: none;
+}
+
+.formBackgroundActive{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.281);
+    justify-content: center;
+    padding: 1rem 0;
+    }
+
+.formAddEvent{
+    background-color: white;
+    border-radius: 10px;
+    width: 50%;
+
 }

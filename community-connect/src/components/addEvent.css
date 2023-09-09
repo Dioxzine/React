@@ -1,0 +1,11 @@
+.addEvent{
+position: sticky;
+top:100vh;
+text-align: center;
+width: 4vw;
+height: 4vw;
+z-index: 1;
+float: right;
+border-radius: 20px;
+
+}

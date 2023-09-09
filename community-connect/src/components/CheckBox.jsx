@@ -1,5 +1,6 @@
 import "./CheckBox.css"
 import Data from "../Data"
+import { useState } from "react";
 
 function box(tag){
 return(

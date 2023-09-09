@@ -6,12 +6,12 @@ import { FaSearch } from "react-icons/fa";
 
 function SearchBar ()  {
   const [input,setInput] = useState("");
-  console.log(input)
+ 
     return(
-        <div className="ricerca">
-        <form>
+        <div className="ricerca2">
+        <form className="Searchbar">
         <FaSearch  color="black" className='lent' />
-          <input type="text" placeholder="trova eventi intorno a te!"value={input} onChange={(e)=> setInput(e.target.value)}></input>
+          <input className="searchbar" type="text" placeholder="trova eventi intorno a te!"value={input} onChange={(e)=> setInput(e.target.value)}></input>
         </form>
       </div>        
     );
