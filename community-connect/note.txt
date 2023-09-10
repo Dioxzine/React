@@ -249,14 +249,38 @@ export default EventsPage;
       }, []);
 
 
-       setLocalStorageData(function(){
+           const addFormData = document.querySelector(".AddEventForm")
+    if(addFormData){
+        addFormData.addEventListener('submit',event =>{
+            event.preventDefault();
+            ;
+            
+        })
+    }   
+    
+
+
+    const addFormData = document.querySelector(".AddEventForm")
+    if(addFormData){
+        addFormData.addEventListener('submit',event =>{
+            event.preventDefault();
+            const formData = new FormData(addFormData);
+            const dataForm = Object.fromEntries(formData)     
+            localStorage.setItem(JSON.stringify(dataForm.nome),JSON.stringify(dataForm))
+            setLocalStorageData(function(){
                 const array = []
                 const keys = Object.keys(localStorage)
-                for (let i = keys.length-1; i >= 0; i--) {                
+                for (let i = 0; i < keys.length; i++) {                
                     const key  = keys[i];
-                    const key2 = key
-                    array[key] = JSON.parse(localStorage.getItem(key))                       
-                  }
+                    array[i]= {}              
+                    array[i][key] = JSON.parse(localStorage.getItem(key))     
+                                 
+                  }                  
+                  addFormData.reset()
+                  CloseAddForm()
                   return array
+                  
             });
-    
+            
+        })
+    }     

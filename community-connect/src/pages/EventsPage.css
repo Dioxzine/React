@@ -21,6 +21,7 @@ padding: 2rem;
     border-radius: 10px;
     padding: 1vh;
     border: 1px solid  rgba(34, 34, 34, 0.411);
+    position: relative;
 }
 
 .eventBox {
@@ -31,6 +32,30 @@ padding: 2rem;
     overflow: auto;
     position: relative;
     
+}
+.tagPreferiti{
+display: flex;
+justify-content: space-between;
+}
+.preferiti{
+height: auto;
+width: auto;
+}
+
+.preferitiCliccato{
+    height: auto;
+width: auto;
+}
+
+.star , .noIdea{
+color: rgb(114, 114, 114);
+}
+
+.ab .star {
+color: yellow;
+}
+.eb .noIdea{
+    color: yellow;
 }
 
 .title {
@@ -46,8 +71,8 @@ border: 1px solid  rgba(34, 34, 34, 0.411);
 .button {
     display: grid;
     place-content: center;
-    width: 100%;
-    height: 100%;
+    width: 3rem;
+    height: 3rem;
     border-radius: 15px;
     background-color: rgb(157, 235, 255);
     border: 1px rgba(34, 34, 34, 0.411) solid;
@@ -84,4 +109,12 @@ display: none;
     border-radius: 10px;
     width: 50%;
 
+}
+
+.returnPreferitiAddButton{
+display: flex;
+width: 98%;
+justify-content: space-between;
+position: absolute;
+bottom: 10px;
 }
